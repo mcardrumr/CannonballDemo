@@ -148,9 +148,11 @@
     </Compile>
     <Compile Include="Models\Coordinate.cs" />
     <Compile Include="Models\DegreeCalculator.cs" />
+    <Compile Include="Models\GameFlow.cs" />
     <Compile Include="Models\IDegreeCalculator.cs" />
+    <Compile Include="Models\IGameFlow.cs" />
     <Compile Include="Models\INumberGenerator.cs" />
-    <Compile Include="Models\IRangeValidator.cs" />
+    <Compile Include="Models\IAngleValidator.cs" />
     <Compile Include="Models\IShotCounter.cs" />
     <Compile Include="Models\IShotVerifier.cs" />
     <Compile Include="Models\ITargetGenerator.cs" />
@@ -158,7 +160,7 @@
     <Compile Include="Models\IXCoordinateCalculator.cs" />
     <Compile Include="Models\IYCoordinateCalculator.cs" />
     <Compile Include="Models\NumberGenerator.cs" />
-    <Compile Include="Models\RangeValidator.cs" />
+    <Compile Include="Models\AngleValidator.cs" />
     <Compile Include="Models\ShotCounter.cs" />
     <Compile Include="Models\ShotVerifier.cs" />
     <Compile Include="Models\TargetGenerator.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Models\XCoordinateCalculator.cs" />
     <Compile Include="Models\YCoordinateCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\GameFlowView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace CannonBall.Web.Models
 {
-    public interface IRangeValidator
+    public interface IGameFlow
     {
-        bool GetIsValid(decimal angle);
+        Coordinate Start();
+
+        bool TakeShot(decimal angle, decimal velocity);
+
+        int GetShotCount();
     }
 }

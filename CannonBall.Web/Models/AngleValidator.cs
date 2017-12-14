@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CannonBall.Web.Models
 {
-    public class RangeValidator : IRangeValidator
+    public class AngleValidator : IAngleValidator
     {
         public bool GetIsValid(decimal angle)
         {

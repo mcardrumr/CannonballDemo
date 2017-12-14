@@ -175,3 +175,56 @@ then Number generator gets called 0 times
 
 
 --- Game flow -- 30 mins
+
+Given I am a user
+When I start the game
+then target generator called once
+
+Given I am a user
+When I start the game
+then I get a the target returned by target generator
+
+Given I am a user
+When I take a shot
+then angle validator is called once
+
+Given I am a user
+When I take a shot with invalid angle
+then "enter angle between 1 and 90" is displayed
+
+Given I am a user
+When I take a shot with invalid angle
+then shot counter is not called
+
+Given I am a user
+When I take a shot
+then velocity validator is called once
+
+Given I am a user
+When I take a shot with invalid velocity
+then "enter velocity between 1 and 20" is displayed
+
+Given I am a user
+When I take a shot with invalid velocity
+then shot counter is not called
+
+Given I am a user
+When I take a valid shot (valid angle and velocity)
+then shot counter is called once
+
+Given I am a user
+When I take a valid shot (valid angle and velocity)
+then X calculator counter is called once
+
+Given I am a user
+When I take a valid shot (valid angle and velocity)
+then Y calculator counter is called once
+
+Given I am a user
+When I take a valid shot (valid angle and velocity)
+then shot verifier is called once
+
+
+... more???
+
+
