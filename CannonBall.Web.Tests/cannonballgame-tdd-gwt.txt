@@ -1,0 +1,177 @@
+Cannonball Game TDD
+
+GIVEN I have a game that presents a user with a target with x,y coordinates between 1 and 10
+WHEN  I enter a valid angle between 1 and 90
+AND   I enter a valid velocity between 1 and 20
+THEN  I am told if I hit my target
+AND   If I didn't hit the target I get to take another shot
+AND   If I did hit the target I am told how many shots it took
+
+Rounding degree calculator - round after division up to 10 number
+Rounding X coord calculator - round
+
+The math to figure out if an angle and velocity hit a target is to first determine the degrees from an angle (Angle * (Math.PI / 180)).
+The X and Y coordinates of the shot are figured out by
+
+Math.Cos(Degrees) * Velocity 
+
+and Math.Sin(Degrees) * Velocity
+
+--ANGLE VALIDATOR-- 15 mins
+GIVEN I am a user
+WHEN I enter the angle 1
+THEN I get back true
+
+GIVEN I am a user
+WHEN I enter the angle 0
+THEN I get back false
+
+GIVEN I am a user
+WHEN I enter the angle 90
+THEN I get back true
+
+GIVEN I am a user
+WHEN I enter the angle 91
+THEN I get back false
+
+--VELOCITY VALIDATOR-- 15 mins
+GIVEN I am a user
+WHEN I enter 1 for velocity
+THEN I get back true
+
+GIVEN I am a user
+WHEN I enter 0 for velocity
+THEN I get back false
+
+GIVEN I am a user
+WHEN I enter 20 for velocity
+THEN I get back true
+
+GIVEN I am a user
+WHEN I enter 21 for velocity
+THEN I get back false
+
+--DEGREE Calculator -- 45 mins 
+GIVEN I am a user
+WHEN I enter 1
+THEN I get back 0.0174532925
+
+GIVEN I am a user
+WHEN I enter 2
+THEN I get back 0.034906585
+
+GIVEN I am a user
+WHEN I enter 90
+THEN I get back 1.570796325
+
+--X Coord Calculator  - 10 
+
+GIVEN I am a user
+WHEN I enter velocity 1
+AND and a degree of 1
+AND I compute my X coordinate
+THEN I get back 1
+
+GIVEN I am a user
+WHEN I enter velocity 2
+AND A degree of 1
+and I compute my X coordinate
+THEN I get back 2
+
+GIVEN I am a user
+WHEN I enter a velocity 20
+AND A degree of 1
+and I compute my X coordinate
+THEN I get back 20
+
+--Y Coord Calculator-- 10
+
+GIVEN I am a user
+WHEN I enter velocity 1
+AND and a degree of 1
+AND I compute my Y coordinate
+THEN I get back 0
+
+GIVEN I am a user
+WHEN I enter velocity 2
+AND A degree of 1
+and I compute my Y coordinate
+THEN I get back 0
+
+GIVEN I am a user
+WHEN I enter a velocity 20
+AND A degree of 1
+and I compute my Y coordinate
+THEN I get back 0
+
+GIVEN I am a user
+WHEN I enter a velocity 10
+AND A degree of 45
+and I compute my Y coordinate
+THEN I get back 7
+
+-- Verify Shot Hit target -- 10
+
+Given I am user 
+When i have a shot of x=5,y=5  
+and target x=5, and y=5
+And I compute if shot hit target
+then i return true
+
+Given I am user 
+When i have a shot of x=5,y=6  
+and target x=5, and y=5
+And I compute if shot hit target
+then i return false
+
+Given I am user 
+When i have a shot of x=6,y=5
+and target x=5, and y=5
+And I compute if shot hit target
+then i return false
+
+-- Shot Counter -- 10
+
+Given i am a user
+When i start the game
+my shot counter is at 0
+
+Given I am user 
+When my shot counter is at 5
+And I take a shot
+then my shot counter is at 6
+
+Given I am user 
+When my shot counter is at 0
+And I take a shot
+then my shot counter is at 1
+
+-- Randonnumber generator-- 5
+
+No tests needed its a microsoft implemenation 
+
+-- Target Generator -- 15
+
+Give Iam a user
+When i need a target with x=5, y=5
+and i ask for target x=5,y=5
+then i get x=5,y=5
+
+Given I am a user
+When i need a target with X=6 , y=5
+and i ask for target x=6 , y=5
+then i get x=6,y=5
+
+
+Given I am a user
+When i dont give any target values
+and i ask for a target
+then Number generator gets called 2 times
+
+Given I am a user
+When i give the target i need
+and i ask for a target
+then Number generator gets called 0 times
+
+
+--- Game flow -- 30 mins
