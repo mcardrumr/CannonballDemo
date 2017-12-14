@@ -9,12 +9,6 @@ namespace CannonBall.Web.Models
     {
         public bool GetIsHit(Coordinate shot, Coordinate target)
         {
-            if ((shot == null && (target != null))
-                || (shot != null && (target == null)))
-            {
-                return false;
-            };
-
             return (shot.X == target.X) && (shot.Y == target.Y);
         }
     }
