@@ -11,10 +11,12 @@ namespace CannonBall.Web.Tests.Models
         public void That_Get_Returns1ForVelocity1AndDegrees1()
         {
             // given a calculator
-            IXCoordinateCalculator target = new XCoordinateCalculator();
+            IDegreeCalculator degreeCalculator = new DegreeCalculator();
+            IXCoordinateCalculator target
+                = new XCoordinateCalculator(degreeCalculator);
 
             // when I enter velocity, 1; degrees 1
-            int actual = target.Get(velocity: 1M, degrees: 1M);
+            int actual = target.Get(velocity: 1M, angle: 1M);
 
             // assert - result is 1
             Assert.AreEqual(1, actual);
@@ -24,10 +26,12 @@ namespace CannonBall.Web.Tests.Models
         public void That_Get_Returns2ForVelocity2AndDegrees1()
         {
             // given a calculator
-            IXCoordinateCalculator target = new XCoordinateCalculator();
+            IDegreeCalculator degreeCalculator = new DegreeCalculator();
+            IXCoordinateCalculator target 
+                = new XCoordinateCalculator(degreeCalculator);
 
             // when I enter velocity, 2; degrees 1
-            int actual = target.Get(velocity: 2M, degrees: 1M);
+            int actual = target.Get(velocity: 2M, angle: 1M);
 
             // assert - result is 2
             Assert.AreEqual(2, actual);
@@ -37,10 +41,12 @@ namespace CannonBall.Web.Tests.Models
         public void That_Get_Returns20ForVelocity20AndDegrees1()
         {
             // given a calculator
-            IXCoordinateCalculator target = new XCoordinateCalculator();
+            IDegreeCalculator degreeCalculator = new DegreeCalculator();
+            IXCoordinateCalculator target
+                = new XCoordinateCalculator(degreeCalculator);
 
             // when I enter velocity, 20; degrees 1
-            int actual = target.Get(velocity: 20M, degrees: 1M);
+            int actual = target.Get(velocity: 20M, angle: 1M);
 
             // assert - result is 20
             Assert.AreEqual(20, actual);

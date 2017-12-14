@@ -5,11 +5,11 @@ using System.Web;
 
 namespace CannonBall.Web.Models
 {
-    public class XCoordinateCalculator : IXCoordinateCalculator
+    public class YCoordinateCalculator : IYCoordinateCalculator
     {
         private IDegreeCalculator _degreeCalculator;
 
-        public XCoordinateCalculator(IDegreeCalculator degreeCalculator)
+        public YCoordinateCalculator(IDegreeCalculator degreeCalculator)
         {
             _degreeCalculator = degreeCalculator;
         }
@@ -19,7 +19,7 @@ namespace CannonBall.Web.Models
             var radians = _degreeCalculator.GetDegrees(angle);
 
             return Convert.ToInt32(Math.Round(
-                Math.Cos(Convert.ToDouble(radians)) * Convert.ToDouble(velocity), 0)
+                Math.Sin(Convert.ToDouble(radians)) * Convert.ToDouble(velocity), 0)
                 );
         }
     }

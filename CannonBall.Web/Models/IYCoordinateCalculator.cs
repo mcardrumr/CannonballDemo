@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CannonBall.Web.Models
 {
-    public interface IXCoordinateCalculator
+    public interface IYCoordinateCalculator
     {
         int Get(decimal velocity, decimal angle);
     }

@@ -90,9 +90,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DegreeCalculatorTest.cs" />
+    <Compile Include="Models\ShotVerifierTest.cs" />
     <Compile Include="Models\VelocityValidatorTest.cs" />
     <Compile Include="Models\AngleValidatorTest.cs" />
     <Compile Include="Models\XCoordinateCalculatorTest.cs" />
+    <Compile Include="Models\YCoordinateCalculatorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>

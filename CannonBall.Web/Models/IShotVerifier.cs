@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CannonBall.Web.Models
 {
-    public interface IXCoordinateCalculator
+    public interface IShotVerifier
     {
-        int Get(decimal velocity, decimal angle);
+        bool GetIsHit(Coordinate shot, Coordinate target);
     }
 }

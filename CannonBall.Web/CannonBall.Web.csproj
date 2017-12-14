@@ -146,14 +146,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Coordinate.cs" />
     <Compile Include="Models\DegreeCalculator.cs" />
     <Compile Include="Models\IDegreeCalculator.cs" />
     <Compile Include="Models\IRangeValidator.cs" />
+    <Compile Include="Models\IShotVerifier.cs" />
     <Compile Include="Models\IVelocityValidator.cs" />
     <Compile Include="Models\IXCoordinateCalculator.cs" />
+    <Compile Include="Models\IYCoordinateCalculator.cs" />
     <Compile Include="Models\RangeValidator.cs" />
+    <Compile Include="Models\ShotVerifier.cs" />
     <Compile Include="Models\VelocityValidator.cs" />
     <Compile Include="Models\XCoordinateCalculator.cs" />
+    <Compile Include="Models\YCoordinateCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
