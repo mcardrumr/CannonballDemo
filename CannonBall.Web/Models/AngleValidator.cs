@@ -15,5 +15,10 @@ namespace CannonBall.Web.Models
             }
             return false;
         }
+
+        public string GetErrorMessage()
+        {
+            return @"enter angle between 1 and 90";
+        }
     }
 }

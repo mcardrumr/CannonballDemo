@@ -9,5 +9,7 @@ namespace CannonBall.Web.Models
     public interface IAngleValidator
     {
         bool GetIsValid(decimal angle);
+
+        string GetErrorMessage();
     }
 }

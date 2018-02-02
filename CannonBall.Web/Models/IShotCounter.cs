@@ -9,6 +9,6 @@ namespace CannonBall.Web.Models
     public interface IShotCounter
     {
         int GetCount();
-        void AddShot();
+        void AddShot(int currentShotCount);
     }
 }

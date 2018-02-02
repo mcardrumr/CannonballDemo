@@ -15,5 +15,10 @@ namespace CannonBall.Web.Models
             }
             return false;
         }
+
+        public string GetErrorMessage()
+        {
+            return @"enter velocity between 1 and 20";
+        }
     }
 }

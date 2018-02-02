@@ -8,25 +8,64 @@ namespace CannonBall.Web.Models
     public class GameFlow : IGameFlow
     {
         private ITargetGenerator _targetGenerator;
+        private IAngleValidator _angleValidator;
+        private IVelocityValidator _velocityValidator;
+        private IShotCounter _shotCounter;
+        private IXCoordinateCalculator _xCalculator;
+        private IYCoordinateCalculator _yCalculator;
 
-        public GameFlow(ITargetGenerator targetGenerator)
+        public GameFlow(ITargetGenerator targetGenerator,
+            IAngleValidator angleValidator, 
+            IVelocityValidator velocityValidator,
+            IShotCounter shotCounter, 
+            IXCoordinateCalculator xCalculator,
+            IYCoordinateCalculator yCalculator)
         {
             _targetGenerator = targetGenerator;
+            _angleValidator = angleValidator;
+            _velocityValidator = velocityValidator;
+            _shotCounter = shotCounter;
+            _xCalculator = xCalculator;
+            _yCalculator = yCalculator;
         }
 
         public int GetShotCount()
         {
-            throw new NotImplementedException();
+            return _shotCounter.GetCount();
         }
 
-        public Coordinate Start()
+        public Coordinate GetNewTarget()
         {
-            throw new NotImplementedException();
+            return _targetGenerator.GetTarget();
         }
 
-        public bool TakeShot(decimal angle, decimal velocity)
+        public bool TakeShot(int currentShotCount, decimal angle, decimal velocity,
+            Coordinate currentTarget)
         {
-            throw new NotImplementedException();
+            if (!_angleValidator.GetIsValid(angle))
+            {
+                throw new ApplicationException(
+                    _angleValidator.GetErrorMessage());
+            }
+
+            if (!_velocityValidator.GetIsValid(velocity))
+            {
+                throw new ApplicationException(
+                    _velocityValidator.GetErrorMessage());
+            }
+
+            var xCalculated = _xCalculator.Get(velocity, angle);
+            var yCalculated = _yCalculator.Get(velocity, angle);
+
+            _shotCounter.AddShot(currentShotCount);
+
+            if (xCalculated == currentTarget.X 
+                && (yCalculated == currentTarget.Y))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

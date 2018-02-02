@@ -190,7 +190,7 @@ then angle validator is called once
 
 Given I am a user
 When I take a shot with invalid angle
-then "enter angle between 1 and 90" is displayed
+then error message, "enter angle between 1 and 90" is thrown
 
 Given I am a user
 When I take a shot with invalid angle
@@ -202,7 +202,7 @@ then velocity validator is called once
 
 Given I am a user
 When I take a shot with invalid velocity
-then "enter velocity between 1 and 20" is displayed
+then error message, "enter velocity between 1 and 20" is thrown
 
 Given I am a user
 When I take a shot with invalid velocity
@@ -224,6 +224,15 @@ Given I am a user
 When I take a valid shot (valid angle and velocity)
 then shot verifier is called once
 
+Given I am a user
+When I take a valid shot (valid angle and velocity)
+and the shot verifier returns true for "is hit"
+then the game is over
+
+Given I am a user
+When I take a valid shot (valid angle and velocity)
+and the shot verifier returns false for "is hit"
+then the game is not over
 
 ... more???
 

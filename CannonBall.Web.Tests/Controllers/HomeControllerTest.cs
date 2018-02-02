@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CannonBall.Web;
 using CannonBall.Web.Controllers;
+using Moq;
+using CannonBall.Web.Models;
 
 namespace CannonBall.Web.Tests.Controllers
 {
@@ -16,7 +18,12 @@ namespace CannonBall.Web.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            var mockGameFlow = new Mock<IGameFlow>();
+            mockGameFlow.Setup(x => x.GetNewTarget())
+                .Returns(new Coordinate(2,3));
+
+            HomeController controller = new HomeController(
+                mockGameFlow.Object);
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -29,7 +36,8 @@ namespace CannonBall.Web.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(
+                new Mock<IGameFlow>().Object);
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -42,7 +50,8 @@ namespace CannonBall.Web.Tests.Controllers
         public void Contact()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            HomeController controller = new HomeController(
+                new Mock<IGameFlow>().Object);
 
             // Act
             ViewResult result = controller.Contact() as ViewResult;

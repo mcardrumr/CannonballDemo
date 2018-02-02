@@ -9,5 +9,7 @@ namespace CannonBall.Web.Models
     public interface IVelocityValidator
     {
         bool GetIsValid(decimal velocity);
+
+        string GetErrorMessage();
     }
 }

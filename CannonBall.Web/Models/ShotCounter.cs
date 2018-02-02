@@ -9,19 +9,9 @@ namespace CannonBall.Web.Models
     {
         private int _count;
 
-        public ShotCounter()
+        public void AddShot(int currentShotCount)
         {
-            // intentionally left empty
-        }
-
-        public ShotCounter(int startCount)
-        {
-            _count = startCount;
-        }
-
-        public void AddShot()
-        {
-            _count++;
+            _count = ++currentShotCount;
         }
 
         public int GetCount()

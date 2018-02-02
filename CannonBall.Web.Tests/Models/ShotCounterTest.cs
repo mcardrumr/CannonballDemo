@@ -24,11 +24,11 @@ namespace CannonBall.Web.Tests.Models
         public void That_GetCount_Returns6AfterShotTakenAndCounterWas5()
         {
             // given a shot counter starting at 5
-            IShotCounter serviceToTest = new ShotCounter(
-                startCount: 5);
+            int startCount = 5;
+            IShotCounter serviceToTest = new ShotCounter();
 
             // when one shot taken
-            serviceToTest.AddShot();
+            serviceToTest.AddShot(startCount);
             int actual = serviceToTest.GetCount();
 
             // assert - result is 6
@@ -42,7 +42,7 @@ namespace CannonBall.Web.Tests.Models
             IShotCounter serviceToTest = new ShotCounter();
 
             // when one shot taken
-            serviceToTest.AddShot();
+            serviceToTest.AddShot(currentShotCount: 0);
             int actual = serviceToTest.GetCount();
 
             // assert - result is 1

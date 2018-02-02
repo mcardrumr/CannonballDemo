@@ -20,7 +20,7 @@ namespace CannonBall.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var target = _gameFlow.Start();
+            var target = _gameFlow.GetNewTarget();
 
             var view = new GameFlowView()
             {
@@ -34,7 +34,9 @@ namespace CannonBall.Web.Controllers
         [HttpPost]
         public ActionResult Index(GameFlowView model)
         {
-            bool wasHit = _gameFlow.TakeShot(model.Angle, model.Velocity);
+            bool wasHit = _gameFlow.TakeShot(model.ShotsTaken, 
+                model.Angle, model.Velocity, 
+                new Coordinate(model.TargetX, model.TargetY));
 
             if (wasHit)
             {

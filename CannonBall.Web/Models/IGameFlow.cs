@@ -8,9 +8,10 @@ namespace CannonBall.Web.Models
 {
     public interface IGameFlow
     {
-        Coordinate Start();
+        Coordinate GetNewTarget();
 
-        bool TakeShot(decimal angle, decimal velocity);
+        bool TakeShot(int currentShotCount, decimal angle, decimal velocity, 
+            Coordinate currentTarget);
 
         int GetShotCount();
     }

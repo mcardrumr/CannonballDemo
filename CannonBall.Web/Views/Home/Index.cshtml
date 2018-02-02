@@ -1,7 +1,63 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model CannonBall.Web.ViewModels.GameFlowView
 
-<div class="jumbotron">
+<div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <h4>The Cannonball Game</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TargetX)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TargetX)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TargetY)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TargetY)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Angle)
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Angle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Velocity)
+            </dt>
+
+            <dd>
+                @Html.TextBoxFor(model => model.Velocity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WasTargetHit)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WasTargetHit)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ShotsTaken)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ShotsTaken)
+            </dd>
+
+        </dl>
+
+        <br />
+        <input type="submit" value="Take your shot" />
+    }
 </div>
 >
