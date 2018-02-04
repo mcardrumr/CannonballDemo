@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 
 namespace CannonBall.Web.Controllers
 {
@@ -32,18 +33,18 @@ namespace CannonBall.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(GameFlowView model)
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(
+            [Bind(Include = "Angle,Velocity,TargetX,TargetY,ShotsTaken")] GameFlowView model)
         {
-            bool wasHit = _gameFlow.TakeShot(model.ShotsTaken, 
-                model.Angle, model.Velocity, 
-                new Coordinate(model.TargetX, model.TargetY));
-
-            if (wasHit)
+            if (ModelState.IsValid)
             {
-                model.WasTargetHit = true;
+                model.WasTargetHit = _gameFlow.TakeShot(Request["ShotCount"].AsInt(),
+                    model.Angle, model.Velocity,
+                    new Coordinate(model.TargetX, model.TargetY));
+
                 model.ShotsTaken = _gameFlow.GetShotCount();
             }
-
             return View(model);
         }
 

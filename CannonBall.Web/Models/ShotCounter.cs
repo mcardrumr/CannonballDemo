@@ -11,7 +11,7 @@ namespace CannonBall.Web.Models
 
         public void AddShot(int currentShotCount)
         {
-            _count = ++currentShotCount;
+            _count = currentShotCount + 1;
         }
 
         public int GetCount()
