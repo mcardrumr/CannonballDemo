@@ -1,6 +1,7 @@
 ﻿@model CannonBall.Web.ViewModels.GameFlowView
 <style type="text/css">
     .readonly { border-style:none; }
+    .errorMsg { color:red;}
 </style>
 <div>
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -32,7 +33,7 @@
 
             <dd>
                 @Html.TextBoxFor(model => model.Angle)
-                @Html.ValidationMessageFor(model => model.Angle)
+                @Html.ValidationMessageFor(model => model.Angle, null, new { @class = "errorMsg" })
             </dd>
 
             <dt>
@@ -41,7 +42,7 @@
 
             <dd>
                 @Html.TextBoxFor(model => model.Velocity)
-                @Html.ValidationMessageFor(model => model.Velocity)
+                @Html.ValidationMessageFor(model => model.Velocity, null, new { @class = "errorMsg" })
             </dd>
 
             <dt>
@@ -62,7 +63,7 @@
         else
         {
             <input type="submit" value="Take your shot" />
-            if (IsPost)
+            if (IsPost && ViewData.ModelState.IsValid)
             {
                 <div style="color:red">Missed!</div>
             }
